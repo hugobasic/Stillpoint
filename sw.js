@@ -1,9 +1,21 @@
 /* Stillpoint service worker — offline app shell caching */
-const CACHE = 'stillpoint-v3';
+const CACHE = 'stillpoint-v5';
 const ASSETS = [
   'index.html',
   'styles.css',
-  'app.js',
+  'css/install-prompt.css',
+  'js/main.js',
+  'js/core/router.js',
+  'js/core/store.js',
+  'js/core/utils.js',
+  'js/core/sw-register.js',
+  'js/features/home.js',
+  'js/features/top3.js',
+  'js/features/breathe.js',
+  'js/features/situation.js',
+  'js/features/settings.js',
+  'js/features/cue.js',
+  'js/features/install.js',
   'manifest.json',
   'icons/icon.svg',
   'icons/icon-192.png',
