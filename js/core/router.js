@@ -6,6 +6,13 @@ export const routes = ['home', 'top3', 'breathe', 'situation', 'settings'];
 
 let listener = () => {};
 
+/* Let feature modules add their own routes (e.g. Learn sub-pages). */
+export function registerRoutes(extra) {
+  for (const r of extra) {
+    if (!routes.includes(r)) routes.push(r);
+  }
+}
+
 export function onRoute(fn) {
   listener = fn;
 }

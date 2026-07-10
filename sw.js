@@ -1,8 +1,9 @@
 /* Stillpoint service worker — offline app shell caching */
-const CACHE = 'stillpoint-v5';
+const CACHE = 'stillpoint-v6';
 const ASSETS = [
   'index.html',
   'styles.css',
+  'css/learn.css',
   'css/install-prompt.css',
   'js/main.js',
   'js/core/router.js',
@@ -12,6 +13,7 @@ const ASSETS = [
   'js/features/home.js',
   'js/features/top3.js',
   'js/features/breathe.js',
+  'js/features/learn.js',
   'js/features/situation.js',
   'js/features/settings.js',
   'js/features/cue.js',
@@ -39,6 +41,9 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
+  // Only handle same-origin requests; let cross-origin media (e.g. sample
+  // videos, which rely on range requests) go straight to the network.
+  if (new URL(event.request.url).origin !== self.location.origin) return;
   event.respondWith(
     caches.match(event.request).then(cached =>
       cached ||

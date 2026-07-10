@@ -30,6 +30,13 @@ export const template = `
             <small>Slow down and reset</small>
           </span>
         </a>
+        <a class="menu-card" href="#learn">
+          <span class="menu-icon">❖</span>
+          <span class="menu-text">
+            <strong>Learn</strong>
+            <small>Short guided courses</small>
+          </span>
+        </a>
         <a class="menu-card" href="#situation">
           <span class="menu-icon">❋</span>
           <span class="menu-text">
