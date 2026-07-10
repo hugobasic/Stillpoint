@@ -73,35 +73,6 @@
   gap: 20px;
 }
 
-.lesson {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 12px;
-}
-
-.lesson-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-.lesson-num {
-  flex: 0 0 auto;
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent);
-  background: var(--bg-2);
-}
-.lesson-meta { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-.lesson-meta strong { font-size: 15px; font-weight: 600; }
-.lesson-meta small { font-size: 12.5px; color: var(--muted); }
-
 /* ---------- Responsive video ---------- */
 .video-frame {
   position: relative;
@@ -111,13 +82,35 @@
   overflow: hidden;
   background: #000;
 }
-.video-frame video {
+.video-frame iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  border: 0;
   display: block;
-  object-fit: cover;
+}
+
+/* Placeholder shown until a course video ID is added */
+.video-frame--empty { display: grid; place-items: center; }
+.video-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+.video-placeholder__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 16px;
+  padding-left: 3px;
 }
 
 /* Fallback for browsers without aspect-ratio support */

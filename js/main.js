@@ -11,7 +11,7 @@ import { registerServiceWorker } from './core/sw-register.js';
 import { template as homeView } from './features/home.js';
 import { template as top3View, Top3 } from './features/top3.js';
 import { template as breatheView, Breathe } from './features/breathe.js';
-import { template as learnView, routes as learnRoutes, pauseAllVideos } from './features/learn.js';
+import { template as learnView, routes as learnRoutes, syncVideos } from './features/learn.js';
 import { template as situationView, Situation } from './features/situation.js';
 import { template as settingsView, Settings } from './features/settings.js';
 import { template as installView, initInstallPrompt } from './features/install.js';
@@ -38,8 +38,8 @@ function wireRouter() {
     if (route === 'top3') Top3.render();
     if (route === 'situation') Situation.render();
     if (route === 'breathe') Breathe.reset();
-    // Stop lesson playback when navigating away from a course page.
-    if (!route.startsWith('learn-')) pauseAllVideos();
+    // Load the active course video; unload (and stop) all others.
+    syncVideos();
   });
   startRouter();
 }

@@ -1,5 +1,5 @@
 /* Stillpoint service worker — offline app shell caching */
-const CACHE = 'stillpoint-v6';
+const CACHE = 'stillpoint-v10';
 const ASSETS = [
   'index.html',
   'styles.css',
